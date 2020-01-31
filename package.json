@@ -1,5 +1,5 @@
 {
-  "name": "photo-gallery",
+  "name": "shows-explorer",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -48,5 +48,5 @@
   "devDependencies": {
     "@capacitor/cli": "1.4.0"
   },
-  "description": "An Ionic project"
+  "description": "Shows exlorer"
 }
