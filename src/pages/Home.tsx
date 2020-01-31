@@ -1,29 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useShow } from "../hooks/show-featured";
 import { IonContent, IonPage, IonLoading } from "@ionic/react";
 
-import HomeShow from "../components/HomeShow";
+import HomeFeaturedShow from "../components/HomeFeaturedShow";
+import HomeShowsByGenres from "../components/HomeShowsByGenres";
 
 const Home: React.FC = () => {
-  const [show, setShow] = useState();
-
-  useEffect(() => {
-    fetch("https://api.tvmaze.com/shows")
-      .then(rs => rs.json())
-      .then(data => {
-        const selected = data[Math.round(Math.random() * data.length)];
-        setShow({
-          image: selected.image.original,
-          name: selected.name,
-          genres: selected.genres
-        });
-      });
-  }, []);
+  const show = useShow();
 
   return (
     <IonPage>
       <IonContent color="dark">
         <IonLoading isOpen={!show} message="Loading..." />
-        {show && <HomeShow {...show} />}
+        {show && <HomeFeaturedShow {...show} />}
+        <HomeShowsByGenres />
       </IonContent>
     </IonPage>
   );

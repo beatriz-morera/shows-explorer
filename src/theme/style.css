@@ -1,3 +1,91 @@
 ion-tab-button {
   background-color: #131314;
 }
+ion-card-title,
+ion-card-subtitle {
+  padding: 5px;
+  text-align: center;
+}
+
+ion-card-title {
+  letter-spacing: 3px;
+}
+ion-card-subtitle {
+  letter-spacing: 2px;
+  font-weight: 50;
+}
+
+.featured-show-buttons-container {
+  margin: 10px 0 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.links {
+  text-decoration: none;
+  color: inherit;
+}
+
+.all-genres-container {
+  margin-top: 30px;
+  text-align: center;
+}
+.genre-title {
+  margin-top: 20px;
+}
+.genre-container-container {
+  display: flex;
+  justify-content: center;
+}
+.genre-container {
+  width: 100%;
+  list-style: none;
+  margin-left: -40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.image-container {
+  max-width: 100px;
+  height: auto;
+}
+/*    Search    */
+
+.searchbar-left-aligned.sc-ion-searchbar-ios-h
+  .searchbar-input.sc-ion-searchbar-ios {
+  padding-inline-start: 50px;
+  color: rgb(230, 230, 230);
+}
+.searchbar-search-icon.sc-ion-searchbar-ios {
+  padding-left: 10px;
+  fill: rgb(182, 182, 182);
+}
+
+.search-container {
+  margin-top: -20px;
+}
+.popular-search-container {
+  display: flex;
+  flex-direction: row;
+}
+.popular-search-info-container {
+  margin-top: -5px;
+  margin-left: 20px;
+}
+.show-title,
+.search-title {
+  color: rgb(230, 230, 230);
+  letter-spacing: 1px;
+}
+
+.search-title {
+  font-size: 23px;
+  font-weight: 600;
+  padding: 10px;
+}
+.show-info {
+  color: rgb(224, 224, 224);
+  letter-spacing: 0.2px;
+  font-size: 14px;
+  font-weight: 200;
+}
