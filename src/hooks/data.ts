@@ -13,6 +13,18 @@ export function useData(): Show[] {
   return data;
 }
 
+export function useShow(id: number) {
+  const data = useData();
+  const [show, setShow] = useState<Show>();
+
+  useEffect(() => {
+    const item = data.find(s => s.id === id);
+    setShow(item);
+  }, [data, id]);
+
+  return show;
+}
+
 export function useFilteredShows(text: string = "") {
   const allShows = useData();
   const [filteredShows, setFilteredShows] = useState<Show[]>([]);

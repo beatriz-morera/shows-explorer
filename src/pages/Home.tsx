@@ -1,12 +1,12 @@
 import React from "react";
-import { useShow } from "../hooks/show-featured";
+import { useRandomShow } from "../hooks/show-featured";
 import { IonContent, IonPage, IonLoading } from "@ionic/react";
 
 import HomeFeaturedShow from "../components/HomeFeaturedShow";
 import HomeShowsByGenres from "../components/HomeShowsByGenres";
 
 const Home: React.FC = () => {
-  const show = useShow();
+  const show = useRandomShow();
 
   return (
     <IonPage>

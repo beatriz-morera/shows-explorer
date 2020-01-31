@@ -3,7 +3,7 @@ import { useData } from "./data";
 
 import { Show } from "../models/show";
 
-export function useShow(): Show {
+export function useRandomShow(): Show {
   const data = useData();
   const [show, setShow] = useState();
 

@@ -1,19 +1,37 @@
-import React from 'react';
-import { IonBackButton, IonButtons, IonHeader, IonPage, IonToolbar, IonTitle, IonContent } from '@ionic/react';
+import React from "react";
+import {
+  IonBackButton,
+  IonButtons,
+  IonHeader,
+  IonPage,
+  IonToolbar,
+  IonLoading,
+  IonTitle,
+  IonContent
+} from "@ionic/react";
+import { RouteComponentProps } from "react-router";
+import { useShow } from "../hooks/data";
 
-const Details: React.FC = () => {
+interface DetailsProps
+  extends RouteComponentProps<{
+    id: string;
+  }> {}
+
+const Details: React.FC<DetailsProps> = ({ match }) => {
+  const show = useShow(parseInt(match.params.id));
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/tab2" />
+            <IonBackButton defaultHref="/search" />
           </IonButtons>
-          <IonTitle>Detail</IonTitle>
+          <IonTitle>Details</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <p>Details</p>
+        <IonLoading isOpen={!show} message="Loading..." />
+        {show && JSON.stringify(show)}
       </IonContent>
     </IonPage>
   );
