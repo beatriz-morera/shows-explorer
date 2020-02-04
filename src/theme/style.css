@@ -9,6 +9,7 @@ ion-card-subtitle {
 
 ion-card-title {
   letter-spacing: 3px;
+  margin-top: 10px;
 }
 ion-card-subtitle {
   letter-spacing: 2px;
@@ -30,7 +31,7 @@ ion-card-subtitle {
   color: rgb(189, 189, 189);
 }
 
-.links {
+.play-button-link {
   text-decoration: none;
   color: inherit;
 }
@@ -75,7 +76,7 @@ ion-card-subtitle {
 }
 
 .list-md {
-  background: #131314;
+  background: #1c1c1d;
 }
 
 .show-title {
@@ -84,24 +85,27 @@ ion-card-subtitle {
   font-size: 15px;
 }
 .all-shows-container {
-  margin-top: 5px;
-  margin-left: -15px;
+  margin-top: -5px;
 }
 
 .show-container {
   display: flex;
   flex-direction: row;
-  margin-bottom: -3px;
+  justify-content: space-between;
+  margin-bottom: -4px;
+  background-color: #1c1c1d;
+  border-top: 2px solid rgb(14, 14, 14);
 }
 .show-image-container {
   width: 100px;
   height: auto;
 }
 .show-info-container {
-  margin: -5px 5px 0 10px;
+  margin: -5px 0 0 -5px;
   width: 190px;
 }
 .show-year {
+  margin-top: 15px;
   font-size: 12px;
   color: rgb(156, 156, 156);
 }
@@ -109,21 +113,31 @@ ion-card-subtitle {
   color: rgb(224, 224, 224);
   font-size: 12px;
   font-weight: 300;
-  margin-top: -2px;
 }
 
-.favorite-icon-list {
+.play-icon-list {
   font-size: 20px;
   align-self: center;
-  text-align: end;
+  color: rgb(224, 224, 224);
+  margin-right: 5px;
 }
 
 /* Details*/
 
-.details-info-container {
-  padding: 10px 0 0;
-  margin-bottom: -10px;
+.details-info-year {
+  margin-top: -3px;
   text-align: center;
+  letter-spacing: 1px;
+  font-weight: 100;
+}
+
+.details-info-summary {
+  margin: -15px 20px 0;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 1px;
+  text-align: center;
+  color: rgb(224, 224, 224);
 }
 
 /* My List */
@@ -137,4 +151,17 @@ ion-card-subtitle {
   letter-spacing: 2px;
   padding: 0 20px 0;
   color: rgb(156, 156, 156);
+}
+.myList-gallery-container {
+  border-left: 2px solid #131314;
+  border-right: 2px solid #131314;
+  margin-top: 2px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.myList-image {
+  display: block;
+  border: 2px solid #131314;
 }

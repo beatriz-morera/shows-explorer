@@ -3,11 +3,13 @@ import { useFilteredShows } from "../hooks/data";
 import {
   IonContent,
   IonPage,
+  IonToolbar,
   IonSearchbar,
   IonList,
-  IonItem,
   IonIcon
 } from "@ionic/react";
+
+import { Link } from "react-router-dom";
 
 import { play } from "ionicons/icons";
 
@@ -19,21 +21,24 @@ const Search: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent color="dark">
+      <IonToolbar color="dark">
         <IonSearchbar
+          animated
           color="medium"
           autocomplete="on"
           placeholder="Search for a show..."
           value={text}
           onInput={filterShowsHandler}
         ></IonSearchbar>
+      </IonToolbar>
+      <IonContent color="dark">
         <section className="all-shows-container">
           <IonList color="dark">
             {filteredShows.slice(0, 100).map(show => (
-              <IonItem
+              <Link
+                to={`/search/details/${show.id}`}
                 key={show.id}
-                color="dark"
-                routerLink={`/search/details/${show.id}`}
+                style={{ textDecoration: "none" }}
               >
                 <div className="show-container">
                   <div className="show-image-container">
@@ -45,11 +50,11 @@ const Search: React.FC = () => {
                     <p className="show-info">{show.genres.join(" - ")}</p>
                     <p className="show-info">Language: {show.language}</p>
                   </div>
-                  <div className="favorite-icon-list">
+                  <div className="play-icon-list">
                     <IonIcon icon={play} />
                   </div>
                 </div>
-              </IonItem>
+              </Link>
             ))}
           </IonList>
         </section>

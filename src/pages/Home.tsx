@@ -12,7 +12,7 @@ const Home: React.FC = () => {
     <IonPage>
       <IonContent color="dark">
         <IonLoading isOpen={!show} message="Loading..." />
-        {show && <HeroShow {...show} />}
+        {show && <HeroShow show={show} />}
         <GenresList />
       </IonContent>
     </IonPage>

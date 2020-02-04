@@ -7,7 +7,7 @@ Ionic shows explorer app
 - [x] home page
 - [x] search page
 - [x] details page
-- [ ] favorites page
+- [x] favorites page
 
 **features**
 
@@ -16,4 +16,4 @@ Ionic shows explorer app
 - [x] react hooks
 - [x] custom hooks
 - [ ] context API
-- [ ] local storage
+- [x] local storage
