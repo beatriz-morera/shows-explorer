@@ -30,9 +30,10 @@ export function useFilteredShows(text: string = "") {
   const [filteredShows, setFilteredShows] = useState<Show[]>([]);
 
   useEffect(() => {
-    const search = text.toLowerCase();
     setFilteredShows(
-      allShows.filter(show => show.name.toLowerCase().includes(search))
+      allShows.filter(show =>
+        show.name.toLowerCase().includes(text.toLowerCase())
+      )
     );
   }, [allShows, text]);
 

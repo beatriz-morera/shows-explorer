@@ -6,7 +6,7 @@ Ionic shows explorer app
 
 - [x] home page
 - [x] search page
-- [ ] details page
+- [x] details page
 - [ ] favorites page
 
 **features**

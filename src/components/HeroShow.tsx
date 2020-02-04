@@ -7,10 +7,10 @@ import {
   IonIcon
 } from "@ionic/react";
 
-import { play, informationCircleOutline, star } from "ionicons/icons";
+import { play, informationCircleOutline, add } from "ionicons/icons";
 import { Show } from "../models/show";
 
-const HomeFeaturedShow: React.FC<Show> = ({
+const HeroShow: React.FC<Show> = ({
   name,
   image,
   genres,
@@ -24,22 +24,28 @@ const HomeFeaturedShow: React.FC<Show> = ({
       <IonCardTitle>{name}</IonCardTitle>
       <IonCardSubtitle>{genres.join(" - ")}</IonCardSubtitle>
       <div className="featured-show-buttons-container">
-        <IonButton fill="outline" color="light">
-          <a href={url} className="links">
-            <IonIcon icon={informationCircleOutline} />
-          </a>
-        </IonButton>
+        <div className="icon-container">
+          <IonIcon icon={add} size="large" style={{ marginBottom: "3px" }} />
+          <label>My List</label>
+        </div>
         <IonButton color="light">
           <a href={officialSite} className="links">
             <IonIcon icon={play} /> Play
           </a>
         </IonButton>
-        <IonButton fill="outline" color="light">
-          <IonIcon icon={star} />
-        </IonButton>
+        <div className="icon-container">
+          <IonIcon
+            icon={informationCircleOutline}
+            size="large"
+            style={{ marginBottom: "3px" }}
+          />
+          <a href={url} className="links">
+            Info
+          </a>
+        </div>
       </div>
     </IonCard>
   );
 };
 
-export default HomeFeaturedShow;
+export default HeroShow;

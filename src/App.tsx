@@ -10,10 +10,10 @@ import {
   IonTabs
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { search, star, home } from "ionicons/icons";
+import { search, add, home } from "ionicons/icons";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
-import Favorites from "./pages/Favorites";
+import MyList from "./pages/MyList";
 import Details from "./pages/Details";
 
 /* Core CSS required for Ionic components to work properly */
@@ -44,7 +44,7 @@ const App: React.FC = () => (
           <Route path="/home" component={Home} exact={true} />
           <Route path="/search" component={Search} exact={true} />
           <Route path="/search/details/:id" component={Details} />
-          <Route path="/favorites" component={Favorites} />
+          <Route path="/myList" component={MyList} />
           <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom" color="dark">
@@ -56,9 +56,9 @@ const App: React.FC = () => (
             <IonIcon icon={search} />
             <IonLabel>Search</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="favorites" href="/favorites">
-            <IonIcon icon={star} />
-            <IonLabel>Favorites</IonLabel>
+          <IonTabButton tab="myList" href="/myList">
+            <IonIcon icon={add} />
+            <IonLabel>MyList</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

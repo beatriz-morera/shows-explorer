@@ -2,8 +2,8 @@ import React from "react";
 import { useRandomShow } from "../hooks/show-featured";
 import { IonContent, IonPage, IonLoading } from "@ionic/react";
 
-import HomeFeaturedShow from "../components/HomeFeaturedShow";
-import HomeShowsByGenres from "../components/HomeShowsByGenres";
+import HeroShow from "../components/HeroShow";
+import GenresList from "../components/GenresList";
 
 const Home: React.FC = () => {
   const show = useRandomShow();
@@ -12,8 +12,8 @@ const Home: React.FC = () => {
     <IonPage>
       <IonContent color="dark">
         <IonLoading isOpen={!show} message="Loading..." />
-        {show && <HomeFeaturedShow {...show} />}
-        <HomeShowsByGenres />
+        {show && <HeroShow {...show} />}
+        <GenresList />
       </IonContent>
     </IonPage>
   );

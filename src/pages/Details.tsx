@@ -6,9 +6,17 @@ import {
   IonPage,
   IonToolbar,
   IonLoading,
-  IonTitle,
-  IonContent
+  IonContent,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardSubtitle,
+  IonCardContent,
+  IonButton,
+  IonIcon
 } from "@ionic/react";
+
+import { play, informationCircleOutline, add } from "ionicons/icons";
 import { RouteComponentProps } from "react-router";
 import { useShow } from "../hooks/data";
 
@@ -22,16 +30,56 @@ const Details: React.FC<DetailsProps> = ({ match }) => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar color="dark">
           <IonButtons slot="start">
             <IonBackButton defaultHref="/search" />
           </IonButtons>
-          <IonTitle>Details</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent color="dark">
         <IonLoading isOpen={!show} message="Loading..." />
-        {show && JSON.stringify(show)}
+        {show ? (
+          <IonCard color="medium">
+            <IonCardHeader>
+              <img src={show.image.original} alt={show.name} />
+            </IonCardHeader>
+
+            <IonCardTitle>{show.name}</IonCardTitle>
+            <IonCardSubtitle>{show.premiered.slice(0, 4)}</IonCardSubtitle>
+            <div className="details-info-container">
+              <p className="show-info">{show.genres.join(" - ")}</p>
+              <p className="show-info">Language: {show.language}</p>
+            </div>
+            <IonCardContent>
+              <div dangerouslySetInnerHTML={{ __html: show.summary }} />
+            </IonCardContent>
+            <div className="featured-show-buttons-container">
+              <div className="icon-container">
+                <IonIcon
+                  icon={add}
+                  size="large"
+                  style={{ marginBottom: "3px" }}
+                />
+                <label>My List</label>
+              </div>
+              <IonButton color="light">
+                <a href={show.officialSite} className="links">
+                  <IonIcon icon={play} /> Play
+                </a>
+              </IonButton>
+              <div className="icon-container">
+                <IonIcon
+                  icon={informationCircleOutline}
+                  size="large"
+                  style={{ marginBottom: "3px" }}
+                />
+                <a href={show.url} className="links">
+                  Info
+                </a>
+              </div>
+            </div>
+          </IonCard>
+        ) : null}
       </IonContent>
     </IonPage>
   );

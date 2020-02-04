@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { useOrderedData } from "../hooks/data";
 
-const HomeShowsByGenres: React.FC = () => {
+const GenresList: React.FC = () => {
   const { map, keys } = useOrderedData();
 
   const genres = useMemo(
@@ -42,4 +42,4 @@ const HomeShowsByGenres: React.FC = () => {
   );
 };
 
-export default HomeShowsByGenres;
+export default GenresList;

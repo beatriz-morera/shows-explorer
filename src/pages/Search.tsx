@@ -4,10 +4,12 @@ import {
   IonContent,
   IonPage,
   IonSearchbar,
-  IonCard,
   IonList,
-  IonItem
+  IonItem,
+  IonIcon
 } from "@ionic/react";
+
+import { play } from "ionicons/icons";
 
 const Search: React.FC = () => {
   const [text, setText] = useState("");
@@ -25,10 +27,7 @@ const Search: React.FC = () => {
           value={text}
           onInput={filterShowsHandler}
         ></IonSearchbar>
-        <section className="search-container">
-          <IonCard>
-            <h4 className="search-title">Get your popcorn ready...</h4>
-          </IonCard>
+        <section className="all-shows-container">
           <IonList color="dark">
             {filteredShows.slice(0, 100).map(show => (
               <IonItem
@@ -36,19 +35,20 @@ const Search: React.FC = () => {
                 color="dark"
                 routerLink={`/search/details/${show.id}`}
               >
-                <IonCard>
-                  <div className="popular-search-container">
-                    <div className="image-container">
-                      <img src={show.image.medium} alt={show.name} />
-                    </div>
-                    <div className="popular-search-info-container">
-                      <h4 className="show-title">{show.name}</h4>
-                      <p>{show.premiered.slice(0, 4)}</p>
-                      <p className="show-info">{show.genres.join(" - ")}</p>
-                      <p className="show-info">Language: {show.language}</p>
-                    </div>
+                <div className="show-container">
+                  <div className="show-image-container">
+                    <img src={show.image.medium} alt={show.name} />
                   </div>
-                </IonCard>
+                  <div className="show-info-container">
+                    <h4 className="show-title">{show.name}</h4>
+                    <p className="show-year">{show.premiered.slice(0, 4)}</p>
+                    <p className="show-info">{show.genres.join(" - ")}</p>
+                    <p className="show-info">Language: {show.language}</p>
+                  </div>
+                  <div className="favorite-icon-list">
+                    <IonIcon icon={play} />
+                  </div>
+                </div>
               </IonItem>
             ))}
           </IonList>
