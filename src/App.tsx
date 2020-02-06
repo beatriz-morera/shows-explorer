@@ -9,7 +9,7 @@ import {
   IonTabButton,
   IonTabs
 } from "@ionic/react";
-import { IonReactRouter } from "@ionic/react-router";
+import { IonReactHashRouter } from "@ionic/react-router";
 import { search, checkmark, home } from "ionicons/icons";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
@@ -36,34 +36,40 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 import "./theme/style.css";
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route path="/home" component={Home} exact={true} />
-          <Route path="/search" component={Search} exact={true} />
-          <Route path="/search/details/:id" component={Details} />
-          <Route path="/myList" component={MyList} />
-          <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom" color="dark">
-          <IonTabButton tab="home" href="/home">
-            <IonIcon icon={home} />
-            <IonLabel>Home</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="search" href="/search">
-            <IonIcon icon={search} />
-            <IonLabel>Search</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="myList" href="/myList">
-            <IonIcon icon={checkmark} />
-            <IonLabel>MyList</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  return (
+    <IonApp>
+      <IonReactHashRouter>
+        <IonTabs>
+          <IonRouterOutlet>
+            <Route path="/home" component={Home} exact={true} />
+            <Route path="/search" component={Search} exact={true} />
+            <Route path="/search/details/:id" component={Details} />
+            <Route path="/myList" component={MyList} />
+            <Route
+              path="/"
+              render={() => <Redirect to="/home" />}
+              exact={true}
+            />
+          </IonRouterOutlet>
+          <IonTabBar slot="bottom" color="dark">
+            <IonTabButton tab="home" href="/home">
+              <IonIcon icon={home} />
+              <IonLabel>Home</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="search" href="/search">
+              <IonIcon icon={search} />
+              <IonLabel>Search</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="myList" href="/myList">
+              <IonIcon icon={checkmark} />
+              <IonLabel>MyList</IonLabel>
+            </IonTabButton>
+          </IonTabBar>
+        </IonTabs>
+      </IonReactHashRouter>
+    </IonApp>
+  );
+};
 
 export default App;
