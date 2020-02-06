@@ -1,7 +1,0 @@
-{
-  "name": "shows-explorer",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react"
-}
