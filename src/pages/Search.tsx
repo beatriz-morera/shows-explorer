@@ -23,7 +23,6 @@ const Search: React.FC = () => {
     <IonPage>
       <IonToolbar color="dark">
         <IonSearchbar
-          animated
           color="medium"
           autocomplete="on"
           placeholder="Search for a show..."
