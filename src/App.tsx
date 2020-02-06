@@ -10,7 +10,7 @@ import {
   IonTabs
 } from "@ionic/react";
 import { IonReactHashRouter } from "@ionic/react-router";
-import { search, add, home } from "ionicons/icons";
+import { search, checkmark, home } from "ionicons/icons";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import MyList from "./pages/MyList";
@@ -62,7 +62,7 @@ const App: React.FC = () => {
               <IonLabel>Search</IonLabel>
             </IonTabButton>
             <IonTabButton tab="myList" href="/myList">
-              <IonIcon icon={add} size="large" />
+              <IonIcon icon={checkmark} />
               <IonLabel>MyList</IonLabel>
             </IonTabButton>
           </IonTabBar>
