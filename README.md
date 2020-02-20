@@ -15,7 +15,7 @@ Ionic shows explorer app
 - [x] typescript
 - [x] react hooks
 - [x] custom hooks
-- [ ] context API
+- [x] context API
 - [x] local storage
 
 ## Demo Page

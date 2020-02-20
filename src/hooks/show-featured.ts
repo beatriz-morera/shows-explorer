@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { useData } from "./data";
+import { useContextData } from "./data";
 
 import { Show } from "../models/show";
 
 export function useRandomShow(): Show {
-  const data = useData();
+  const data = useContextData();
   const [show, setShow] = useState();
 
   useEffect(() => {
