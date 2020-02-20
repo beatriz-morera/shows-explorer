@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext, createContext } from "react";
 import { useContextData } from "./data";
 
 import { Show } from "../models/show";
 
-export function useRandomShow(): Show {
+export const FeatureShowContext = createContext<Show | undefined>(undefined);
+
+export function useFeatureShow(): Show {
   const data = useContextData();
   const [show, setShow] = useState();
 
@@ -15,3 +17,5 @@ export function useRandomShow(): Show {
 
   return show;
 }
+
+export const useContextFeatureShow = () => useContext(FeatureShowContext);

@@ -1,7 +1,7 @@
 import React from "react";
 import { useData, DataContext } from "../hooks/data";
 
-const ShowsProvider = ({ children }) => {
+const ShowsProvider: React.FC = ({ children }) => {
   const data = useData();
   return <DataContext.Provider value={data}>{children}</DataContext.Provider>;
 };
