@@ -1,12 +1,12 @@
 import React from "react";
-import { useRandomShow } from "../hooks/show-featured";
+import { useContextFeatureShow } from "../hooks/show-featured";
 import { IonContent, IonPage, IonLoading } from "@ionic/react";
 
 import HeroShow from "../components/HeroShow";
 import GenresList from "../components/GenresList";
 
 const Home: React.FC = () => {
-  const show = useRandomShow();
+  const show = useContextFeatureShow();
 
   return (
     <IonPage>

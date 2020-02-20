@@ -1,5 +1,7 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useContext, createContext } from "react";
 import { Show } from "../models/show";
+
+export const DataContext = createContext([]);
 
 export function useData(): Show[] {
   const [data, setData] = useState([]);
@@ -13,8 +15,10 @@ export function useData(): Show[] {
   return data;
 }
 
+export const useContextData = () => useContext(DataContext);
+
 export function useShow(id: number) {
-  const data = useData();
+  const data = useContextData();
   const [show, setShow] = useState<Show>();
 
   useEffect(() => {
@@ -26,7 +30,7 @@ export function useShow(id: number) {
 }
 
 export function useFilteredShows(text: string = "") {
-  const allShows = useData();
+  const allShows = useContextData();
   const [filteredShows, setFilteredShows] = useState<Show[]>([]);
 
   useEffect(() => {
@@ -41,7 +45,7 @@ export function useFilteredShows(text: string = "") {
 }
 
 export function useOrderedData() {
-  const shows = useData();
+  const shows = useContextData();
   return useMemo(() => {
     const map = new Map<string, Show[]>();
     const keys: string[] = [];
