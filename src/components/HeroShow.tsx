@@ -4,14 +4,17 @@ import {
   IonCardTitle,
   IonCardSubtitle,
   IonButton,
-  IonIcon
+  IonIcon,
 } from "@ionic/react";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { play, informationCircleOutline, add, checkmark } from "ionicons/icons";
 import { Show } from "../models/show";
 import { Link } from "react-router-dom";
 
 import { useFavorites } from "../hooks/localStorage";
+
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 interface HeroShowProps {
   show: Show;
@@ -24,25 +27,25 @@ const HeroShow: React.FC<HeroShowProps> = ({
   show,
   children,
   navigateOnClick = true,
-  showInfoButton = true
+  showInfoButton = true,
 }) => {
   const {
     name,
     image: { original },
     genres,
     officialSite,
-    id
+    id,
   } = show;
 
   const [favorites, addFavorite, removeFavorite] = useFavorites();
-  const isFavorite = favorites.some(f => f.id === id);
+  const isFavorite = favorites.some((f) => f.id === id);
 
   return (
-    <IonCard className="welcome-card" color="dark" style={{ margin: "-10px" }}>
+    <IonCard className="welcome-card" color="dark" style={{ margin: "-2px" }}>
       {navigateOnClick ? (
         <Link to={`/search/details/${id}`} style={{ textDecoration: "none" }}>
-          <img src={original} alt={name} />
-          <IonCardTitle style={{ margin: "3px 2px 0" }}>{name}</IonCardTitle>
+          <LazyLoadImage alt={name} effect="blur" src={original} />
+          <IonCardTitle style={{ margin: "10px 2px 5px" }}>{name}</IonCardTitle>
         </Link>
       ) : (
         <>
