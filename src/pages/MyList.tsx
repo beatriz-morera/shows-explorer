@@ -1,4 +1,7 @@
 import React from "react";
+import { RouteComponentProps } from "react-router";
+import { Link } from "react-router-dom";
+
 import {
   IonContent,
   IonPage,
@@ -6,15 +9,14 @@ import {
   IonIcon,
   IonHeader,
   IonToolbar,
-  IonTitle
+  IonTitle,
 } from "@ionic/react";
-import { Link } from "react-router-dom";
-
 import { checkmarkCircle } from "ionicons/icons";
 
-import { RouteComponentProps } from "react-router";
-
 import { useFavorites } from "../hooks/localStorage";
+
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 interface MyListProps
   extends RouteComponentProps<{
@@ -34,12 +36,13 @@ const MyList: React.FC<MyListProps> = ({ match }) => {
       <IonContent color="dark">
         {favorites.length ? (
           <div className="myList-gallery-container">
-            {favorites.map(fav => (
+            {favorites.map((fav) => (
               <Link to={`/search/details/${fav.id}`} key={fav.id}>
-                <img
+                <LazyLoadImage
                   src={fav.image.medium}
                   alt={fav.name}
                   className="myList-image"
+                  effect="blur"
                 />
               </Link>
             ))}

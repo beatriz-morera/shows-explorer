@@ -1,23 +1,26 @@
 import React, { useState, useCallback } from "react";
-import { useFilteredShows } from "../hooks/data";
+import { Link } from "react-router-dom";
+
 import {
   IonContent,
   IonPage,
   IonToolbar,
   IonSearchbar,
   IonList,
-  IonIcon
+  IonIcon,
 } from "@ionic/react";
-
-import { Link } from "react-router-dom";
-
 import { play } from "ionicons/icons";
+
+import { useFilteredShows } from "../hooks/data";
+
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Search: React.FC = () => {
   const [text, setText] = useState("");
   const filteredShows = useFilteredShows(text);
 
-  const filterShowsHandler = useCallback(ev => setText(ev.target.value), []);
+  const filterShowsHandler = useCallback((ev) => setText(ev.target.value), []);
 
   return (
     <IonPage>
@@ -33,7 +36,7 @@ const Search: React.FC = () => {
       <IonContent color="dark">
         <section className="all-shows-container">
           <IonList color="dark">
-            {filteredShows.slice(0, 100).map(show => (
+            {filteredShows.slice(0, 100).map((show) => (
               <Link
                 to={`/search/details/${show.id}`}
                 key={show.id}
@@ -41,7 +44,11 @@ const Search: React.FC = () => {
               >
                 <div className="show-container">
                   <div className="show-image-container">
-                    <img src={show.image.medium} alt={show.name} />
+                    <LazyLoadImage
+                      src={show.image.medium}
+                      alt={show.name}
+                      effect="blur"
+                    />
                   </div>
                   <div className="show-info-container">
                     <h4 className="show-title">{show.name}</h4>

@@ -1,14 +1,17 @@
 import React, { useMemo } from "react";
+import { Link } from "react-router-dom";
+
 import { useOrderedData } from "../hooks/data";
 
-import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const GenresList: React.FC = () => {
   const { map, keys } = useOrderedData();
 
   const genres = useMemo(
     () =>
-      keys.filter(k => {
+      keys.filter((k) => {
         const size = map.get(k)?.length ?? 0;
         // const shows = map.get(k);
         // const size = (shows === null || shows === undefined) ? 0 : shows.length;
@@ -19,7 +22,7 @@ const GenresList: React.FC = () => {
 
   return (
     <div className="all-genres-container">
-      {genres.map(genre => (
+      {genres.map((genre) => (
         <div key={genre}>
           <h4 className="genre-title">{genre}</h4>
           <div className="genre-container-container">
@@ -27,12 +30,12 @@ const GenresList: React.FC = () => {
               {map
                 .get(genre)
                 ?.slice(0, 6)
-                .map(show => (
+                .map((show) => (
                   <Link to={`/search/details/${show.id}`} key={show.id}>
                     <li>
                       <div className="image-container">
-                        <img
-                          className="image"
+                        <LazyLoadImage
+                          effect="blur"
                           src={show.image.medium}
                           alt={show.name}
                         />

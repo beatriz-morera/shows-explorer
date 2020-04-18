@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import {
   IonCard,
   IonCardTitle,
@@ -6,14 +8,12 @@ import {
   IonButton,
   IonIcon,
 } from "@ionic/react";
-
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { play, informationCircleOutline, add, checkmark } from "ionicons/icons";
-import { Show } from "../models/show";
-import { Link } from "react-router-dom";
 
+import { Show } from "../models/show";
 import { useFavorites } from "../hooks/localStorage";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 interface HeroShowProps {

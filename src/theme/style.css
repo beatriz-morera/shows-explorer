@@ -54,11 +54,12 @@ ion-card-subtitle {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 .image-container {
   max-width: 100px;
-  height: auto;
+  height: 140.47px;
+  margin: 5px;
 }
 /*    Search    */
 
