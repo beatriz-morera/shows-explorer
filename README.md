@@ -1,6 +1,6 @@
-# shows-explorer
+# Shows Explorer
 
-Ionic shows explorer app
+Ionic TV shows explorer  **Mobile Only**
 
 **pages**
 
