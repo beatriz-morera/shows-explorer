@@ -18,11 +18,6 @@ Ionic TV shows explorer  **Mobile Only**
 - [x] context API
 - [x] local storage
 
-## Demo Page
-
-You can check the project running at:
-[https://beatriz-morera.github.io/shows-explorer/](https://beatriz-morera.github.io/shows-explorer/)
-
 ## Available Scripts
 
 In the project directory, you can run:
